@@ -87,4 +87,4 @@ cd /*{PATH_DO_PROJETO}*/vowel-finder
 
 **./gradlew run**
 
-**Output:** Executar o sistema da seguinte forma: ./gradlew run -PappArgs={stream}. Substituir {stream} pela stream desejada.
+**Output:** Executar o sistema da seguinte forma: ***./gradlew run -PappArgs={stream}***. Substituir ***{stream}*** pela stream desejada.
