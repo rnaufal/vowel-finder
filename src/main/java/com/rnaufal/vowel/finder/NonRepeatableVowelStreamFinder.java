@@ -15,7 +15,7 @@ public class NonRepeatableVowelStreamFinder {
     private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u');
 
     private NonRepeatableVowelStreamFinder() {
-        
+
     }
 
     public static char firstChar(Stream input) {
@@ -26,6 +26,7 @@ public class NonRepeatableVowelStreamFinder {
         final Set<Character> repeatedVowels = new HashSet<>();
         final List<Character> candidateVowels = new ArrayList<>();
 
+        Character lastCharacter = ' ';
         while (input.hasNext()) {
             final Character current = input.getNext();
 
@@ -33,10 +34,14 @@ public class NonRepeatableVowelStreamFinder {
                 if (candidateVowels.contains(current)) {
                     repeatedVowels.add(current);
                     candidateVowels.remove(current);
-                } else if (VOWELS.contains(current)) {
+                } else if (VOWELS.contains(current) && !VOWELS.contains(lastCharacter)) {
                     candidateVowels.add(current);
+                } else if (VOWELS.contains(lastCharacter)) {
+                    candidateVowels.remove(lastCharacter);
                 }
             }
+
+            lastCharacter = current;
         }
 
         return candidateVowels.isEmpty() ? ' ' : candidateVowels.get(candidateVowels.size() - 1);
