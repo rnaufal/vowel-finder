@@ -14,6 +14,8 @@ public class NonRepeatableVowelStreamFinder {
 
     private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u');
 
+    public static final char NOT_FOUND = ' ';
+
     private NonRepeatableVowelStreamFinder() {
 
     }
@@ -25,8 +27,8 @@ public class NonRepeatableVowelStreamFinder {
 
         final Set<Character> repeatedVowels = new HashSet<>();
         final List<Character> candidateVowels = new ArrayList<>();
+        int streamSize = 0;
 
-        Character lastCharacter = ' ';
         while (input.hasNext()) {
             final Character current = input.getNext();
 
@@ -34,16 +36,23 @@ public class NonRepeatableVowelStreamFinder {
                 if (candidateVowels.contains(current)) {
                     repeatedVowels.add(current);
                     candidateVowels.remove(current);
-                } else if (VOWELS.contains(current) && !VOWELS.contains(lastCharacter)) {
+                } else if (VOWELS.contains(current)) {
                     candidateVowels.add(current);
-                } else if (VOWELS.contains(lastCharacter)) {
-                    candidateVowels.remove(lastCharacter);
                 }
             }
 
-            lastCharacter = current;
+            streamSize++;
         }
 
-        return candidateVowels.isEmpty() ? ' ' : candidateVowels.get(candidateVowels.size() - 1);
+        return hasFoundVowel(candidateVowels, streamSize) ? getVowel(candidateVowels) : NOT_FOUND;
+    }
+
+    private static Character getVowel(final List<Character> candidateVowels) {
+        return candidateVowels.get(candidateVowels.size() - 1);
+    }
+
+    private static boolean hasFoundVowel(final List<Character> candidateVowels,
+                                         final int streamSize) {
+        return !candidateVowels.isEmpty() && candidateVowels.size() != streamSize;
     }
 }

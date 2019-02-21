@@ -10,6 +10,9 @@ public class CharSequenceStream implements Stream {
     private int currentIndex;
 
     public CharSequenceStream(final String source) {
+        if (source == null) {
+            throw new IllegalArgumentException("source cannot be null");
+        }
         this.chars = source.toCharArray();
     }
 
