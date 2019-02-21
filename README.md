@@ -19,7 +19,7 @@ As seguintes tecnologias foram utilizadas:
 - Hamcrest matchers para tornar os *asserts* nos testes mais elegantes;
 - Gradle para *build* do projeto
 
-O sistema deve ser construído na raiz do projeto vowel-stream-search com o seguinte comando:
+O sistema deve ser construído na raiz do projeto vowel-finder com o seguinte comando:
 
 ***./gradlew clean build*** (em sistemas Unix) e ***./gradlew.bat clean build*** (Windows)
 
@@ -27,7 +27,7 @@ Esse comando utiliza o Gradle *wrapper* para baixar a distribuição do Gradle a
 
 ## Executando o sistema
 
-O sistema deve ser executado na raiz do projeto vowel-stream-search com o seguinte comando Gradle: ***./gradlew run -PappArgs={stream}***
+O sistema deve ser executado na raiz do projeto vowel-finder com o seguinte comando Gradle: ***./gradlew run -PappArgs={stream}***
 
 Esse comando realiza as seguintes tarefas: 
 
