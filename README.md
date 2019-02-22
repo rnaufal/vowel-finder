@@ -70,7 +70,7 @@ A estratégia utilizada para a resolução do problema foi a seguinte:
     * Um *HashSet* que marca se um Vogal se repetiu na stream. Foi utilizado um 
         *HashSet* pois a pesquisa nesta estrutura é rápida.
    
-    * Um *ArrayList* que armazena os vogais candidatos, cuja primeira da lista será o Vogal escolhido.
+    * Um *ArrayList* que armazena os vogais candidatos, cujo primeiro da lista será o Vogal escolhido.
  
 * Ao percorrer a *Stream*, verifica-se se cada caracter é um Vogal. Se ele for um Vogal, é feita uma tentativa de adicioná-lo no *HashSet* de Vogais já vistos.
 
