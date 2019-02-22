@@ -1,4 +1,4 @@
-# Busca de um caracter vogal em uma Stream
+# Busca do Vogal em uma Stream
 
 Sistema que, dada uma stream, encontra o primeiro caracter Vogal, após uma consoante, 
 onde a mesma é antecessora a uma vogal e que não se repita no resto da stream. Caso não encontre
