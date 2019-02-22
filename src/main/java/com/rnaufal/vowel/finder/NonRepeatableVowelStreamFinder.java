@@ -25,34 +25,24 @@ public class NonRepeatableVowelStreamFinder {
             return ' ';
         }
 
-        final Set<Character> repeatedVowels = new HashSet<>();
+        final Set<Character> seenVowels = new HashSet<>();
         final List<Character> candidateVowels = new ArrayList<>();
-        int streamSize = 0;
-
+        Character previousCharacter = null;
         while (input.hasNext()) {
             final Character current = input.getNext();
 
-            if (!repeatedVowels.contains(current)) {
-                if (candidateVowels.contains(current)) {
-                    repeatedVowels.add(current);
+            if (VOWELS.contains(current)) {
+                if (seenVowels.add(current)) {
+                    if (previousCharacter != null && !VOWELS.contains(previousCharacter)) {
+                        candidateVowels.add(current);
+                    }
+                } else {
                     candidateVowels.remove(current);
-                } else if (VOWELS.contains(current)) {
-                    candidateVowels.add(current);
                 }
             }
-
-            streamSize++;
+            previousCharacter = current;
         }
 
-        return hasFoundVowel(candidateVowels, streamSize) ? getVowel(candidateVowels) : NOT_FOUND;
-    }
-
-    private static Character getVowel(final List<Character> candidateVowels) {
-        return candidateVowels.get(candidateVowels.size() - 1);
-    }
-
-    private static boolean hasFoundVowel(final List<Character> candidateVowels,
-                                         final int streamSize) {
-        return !candidateVowels.isEmpty() && candidateVowels.size() != streamSize;
+        return candidateVowels.isEmpty() ? NOT_FOUND : candidateVowels.get(0);
     }
 }

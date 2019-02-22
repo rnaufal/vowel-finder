@@ -30,10 +30,12 @@ class NonRepeatableVowelStreamFinderTest {
         return Stream.of(Arguments.of("aAbBABacafe", 'e'),
                          Arguments.of("AAAAAaaaa", ' '),
                          Arguments.of("afe", 'e'),
-                         Arguments.of("cafe", 'e'),
+                         Arguments.of("cafe", 'a'),
                          Arguments.of("aeiou", ' '),
                          Arguments.of(" ", ' '),
                          Arguments.of("   abacate", 'e'),
+                         Arguments.of("teleferico", 'i'),
+                         Arguments.of("omega", 'e'),
                          Arguments.of("ttttttt", ' '),
                          Arguments.of("telefone", 'o'),
                          Arguments.of("casa", ' '),
@@ -46,6 +48,6 @@ class NonRepeatableVowelStreamFinderTest {
                          Arguments.of("oleo", 'e'),
                          Arguments.of("agua", 'u'),
                          Arguments.of("amago", 'o'),
-                         Arguments.of("voce", 'e'));
+                         Arguments.of("voce", 'o'));
     }
 }
