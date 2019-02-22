@@ -22,7 +22,7 @@ class NonRepeatableVowelStreamFinderTest {
     @DisplayName("Should find non repeatable vowel")
     void testStringListCombinations(final String inputStream,
                                     final char expectedVowel) {
-        char actual = NonRepeatableVowelStreamFinder.firstChar(new CharSequenceStream(inputStream));
+        final char actual = NonRepeatableVowelStreamFinder.firstChar(new CharSequenceStream(inputStream));
         assertThat(actual, is(equalTo(expectedVowel)));
     }
 
