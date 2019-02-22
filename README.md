@@ -65,9 +65,22 @@ A classe *CharSequenceStream* representa uma implementação da interface *Strea
 
 A estratégia utilizada para a resolução do problema foi a seguinte:
 
+* Duas estruturas foram criadas:
+
+    * Um *HashSet* que marca se um Vogal se repetiu na stream. Foi utilizado um 
+        *HashSet* pois a pesquisa neste estrutura é rápida.
+   
+    * Um *ArrayList* que armazena as vogais candidatos, cuja primeira da lista será o Vogal escolhido.
+ 
+* Ao percorrer a *Stream*, verifica-se se cada caracter é um Vogal. Se ele for um Vogal, é feita uma tentativa de adicioná-lo no *HashSet* de Vogais já vistos.
+
+* Caso seja possível adicioná-lo (o que significa que este Vogal corrente ainda não se repetiu), é feita uma verificação se o caracter anterior existe e não é um Vogal. Caso essa verificação tenha sucedido, o Vogal corrente é adicionado no *ArrayList* de vogais candidatos.
+
+* Caso não seja possível adicionar o Vogal corrente no *HashSet* de Vogais já vistos, o Vogal corrente é removido do *ArrayList* de vogais candidatos para escolha.
+
+* A cada iteração da *Stream*, o caracter anterior ao atual é guardado.
           
-* Ao final do processo, o caracter vogal encontrado ou um caracter vazio (indicando que o vogal não foi encontrado)
-é retornado como resultado da busca.
+* Ao final do processo, se o *ArrayList* de vogais candidatos estiver vazio, indica que o Vogal não foi encontrado e um caracter vazio é retornado como resultado da busca. Em caso contrário, o primeiro elemento do *ArrayList* de vogais candidatos é retornado como resultado.
 
 O sistema mostra no *console* a mensagem *Output: {vogal}* ou uma mensagem informando que o caracter não foi localizado.
 
