@@ -78,7 +78,7 @@ A estratégia utilizada para a resolução do problema foi a seguinte:
 
 * Caso não seja possível adicionar o Vogal corrente no *HashSet* de Vogais já vistos, o que indica que ele é uma repetição, o Vogal corrente é removido do *ArrayList* de vogais candidatos para escolha.
 
-* A cada iteração da *Stream*, o caracter anterior ao atual é guardado.
+* A cada iteração da *Stream*, o caracter anterior ao corrente é guardado.
           
 * Ao final do processo, se o *ArrayList* de vogais candidatos estiver vazio, indica que o Vogal não foi encontrado e um caracter vazio é retornado como resultado da busca. Em caso contrário, o primeiro elemento do *ArrayList* de vogais candidatos é retornado como resultado.
 
