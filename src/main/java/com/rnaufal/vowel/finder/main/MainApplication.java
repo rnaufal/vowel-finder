@@ -4,7 +4,7 @@ import com.rnaufal.vowel.finder.NonRepeatableVowelStreamFinder;
 import com.rnaufal.vowel.finder.stream.CharSequenceStream;
 
 /**
- * Created by Rafael Naufal on 02/21/2019.
+ * Created by rnaufal on 02/21/2019.
  */
 public class MainApplication {
 

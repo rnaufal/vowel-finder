@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * Created by Rafael Naufal on 02/21/2019.
+ * Created by rnaufal on 02/21/2019.
  */
 class NonRepeatableVowelStreamFinderTest {
 
