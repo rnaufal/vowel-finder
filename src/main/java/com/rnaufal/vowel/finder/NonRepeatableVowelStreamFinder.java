@@ -31,9 +31,9 @@ public class NonRepeatableVowelStreamFinder {
         while (input.hasNext()) {
             final Character current = input.getNext();
 
-            if (VOWELS.contains(current)) {
+            if (isVowel(current)) {
                 if (seenVowels.add(current)) {
-                    if (previousCharacter != null && !VOWELS.contains(previousCharacter)) {
+                    if (previousCharacter != null && !isVowel(previousCharacter)) {
                         candidateVowels.add(current);
                     }
                 } else {
@@ -44,5 +44,9 @@ public class NonRepeatableVowelStreamFinder {
         }
 
         return candidateVowels.isEmpty() ? NOT_FOUND : candidateVowels.get(0);
+    }
+
+    private static boolean isVowel(final Character current) {
+        return VOWELS.contains(current);
     }
 }
