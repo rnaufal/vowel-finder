@@ -46,7 +46,7 @@ public class NonRepeatableVowelStreamFinder {
         return candidateVowels.isEmpty() ? NOT_FOUND : candidateVowels.get(0);
     }
 
-    private static boolean isVowel(final Character current) {
-        return VOWELS.contains(current);
+    private static boolean isVowel(final Character character) {
+        return VOWELS.contains(character);
     }
 }
